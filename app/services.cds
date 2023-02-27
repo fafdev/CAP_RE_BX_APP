@@ -12,3 +12,5 @@ using from './reinfrastructures/annotations';
 using from './reroles/annotations';
 
 using from './recompanies/annotations';
+
+using from './businesspartner/annotations';

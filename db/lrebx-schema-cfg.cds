@@ -11,24 +11,24 @@ using {
 
 // Company object data
 entity RECompanies : managed {
-    key Code              : String(30) @(title : '{i18n>Code}');
-        ExternalReference : String(30) @(title : '{i18n>ExternalReference}');
-        Name              : String     @(title : '{i18n>Name}');
-        Description       : String     @(title : '{i18n>Description}');
-        AsCommercial      : Boolean    @(title : '{i18n>AsCommercial}');
+    key Code              : String(30) @(title: '{i18n>Code}');
+        ExternalReference : String(30) @(title: '{i18n>ExternalReference}');
+        Name              : String     @(title: '{i18n>Name}');
+        Description       : String     @(title: '{i18n>Description}');
+        AsCommercial      : Boolean    @(title: '{i18n>AsCommercial}');
         InvoicingType     : Association to one InvoicingType;
 }
 
 entity BusinessPartner : managed, cuid {
     key Code              : String(30);
-        TypePartner       : Association to many TypePartner;
         AsPerson          : Boolean;
-        FormaetedName     : String;
+        FormatedName      : String;
         AttachmentsFolder : Association to many cfg.Attachments;
+        TypePartner       : Association to many TypePartner;
 };
 
-entity TypePartner          : CodeList {
-    key Code              : Integer;
+entity TypePartner : CodeList {
+    key Code : Integer;
 };
 
 entity Attachments : managed, cuid {
@@ -51,6 +51,6 @@ entity Images : managed, cuid {
 }
 
 
-entity InvoicingType  : CodeList  {
+entity InvoicingType : CodeList {
     key Code : Integer;
 }

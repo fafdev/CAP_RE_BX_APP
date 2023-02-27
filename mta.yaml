@@ -60,6 +60,10 @@ modules:
       - comlorum4recfgrecompanies.zip
       name: comlorum4recfgrecompanies
       target-path: resources/
+    - artifacts:
+      - comlorum4recfgbusinesspartner.zip
+      name: comlorum4recfgbusinesspartner
+      target-path: resources/
 - name: lorum4reredates
   type: html5
   path: app/redates
@@ -143,6 +147,16 @@ modules:
 - name: comlorum4recfgrecompanies
   type: html5
   path: app/recompanies
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: comlorum4recfgbusinesspartner
+  type: html5
+  path: app/businesspartner
   build-parameters:
     build-result: dist
     builder: custom
