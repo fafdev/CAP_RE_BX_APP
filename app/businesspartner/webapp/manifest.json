@@ -99,7 +99,6 @@
             "css": []
         },
         "routing": {
-            "config": {},
             "routes": [
                 {
                     "pattern": ":?query:",
@@ -120,14 +119,15 @@
                     "options": {
                         "settings": {
                             "entitySet": "BusinessPartner",
-                            "variantManagement": "Page",
+                            "variantManagement": "Control",
                             "navigation": {
                                 "BusinessPartner": {
                                     "detail": {
                                         "route": "BusinessPartnerObjectPage"
                                     }
                                 }
-                            }
+                            },
+                            "initialLoad": "Enabled"
                         }
                     }
                 },
@@ -142,6 +142,11 @@
                         }
                     }
                 }
+            }
+        },
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {}
             }
         }
     },
