@@ -1,0 +1,210 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "com.lorum4re.aux.reinfrastructures",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:lrop",
+            "version": "1.9.0",
+            "toolsId": "688def3a-8087-4fc0-8e7d-8f9b4a383ed7"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/aux-catalog/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "4.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "com-lorum4re-aux-reinfrastructures-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "reinfrastructures",
+                    "action": "maintenance",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.110.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ushell": {},
+                "sap.fe.templates": {},
+                "sap.f": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "com.lorum4re.aux.reinfrastructures.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true
+                }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            }
+        },
+        "resources": {
+            "css": []
+        },
+        "routing": {
+            "routes": [
+                {
+                    "pattern": ":?query:",
+                    "name": "REInfrastructuresList",
+                    "target": [
+                        "REInfrastructuresList"
+                    ]
+                },
+                {
+                    "pattern": "REInfrastructures({key}):?query:",
+                    "name": "REInfrastructuresObjectPage",
+                    "target": [
+                        "REInfrastructuresList",
+                        "REInfrastructuresObjectPage"
+                    ]
+                },
+                {
+                    "pattern": "REInfrastructures({key})/texts({key2}):?query:",
+                    "name": "REInfrastructures_textsObjectPage",
+                    "target": [
+                        "REInfrastructuresList",
+                        "REInfrastructuresObjectPage",
+                        "REInfrastructures_textsObjectPage"
+                    ]
+                }
+            ],
+            "targets": {
+                "REInfrastructuresList": {
+                    "type": "Component",
+                    "id": "REInfrastructuresList",
+                    "name": "sap.fe.templates.ListReport",
+                    "options": {
+                        "settings": {
+                            "entitySet": "REInfrastructures",
+                            "variantManagement": "Page",
+                            "navigation": {
+                                "REInfrastructures": {
+                                    "detail": {
+                                        "route": "REInfrastructuresObjectPage"
+                                    }
+                                }
+                            },
+                            "initialLoad": "Enabled"
+                        }
+                    },
+                    "controlAggregation": "beginColumnPages",
+                    "contextPattern": ""
+                },
+                "REInfrastructuresObjectPage": {
+                    "type": "Component",
+                    "id": "REInfrastructuresObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "editableHeaderContent": false,
+                            "entitySet": "REInfrastructures",
+                            "navigation": {
+                                "texts": {
+                                    "detail": {
+                                        "route": "REInfrastructures_textsObjectPage"
+                                    }
+                                }
+                            },
+                            "variantManagement": "Control"
+                        }
+                    },
+                    "controlAggregation": "midColumnPages",
+                    "contextPattern": "/REInfrastructures({key})"
+                },
+                "REInfrastructures_textsObjectPage": {
+                    "type": "Component",
+                    "id": "REInfrastructures_textsObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "editableHeaderContent": false,
+                            "entitySet": "REInfrastructures_texts"
+                        }
+                    },
+                    "controlAggregation": "endColumnPages",
+                    "contextPattern": "/REInfrastructures({key})/texts({key2})"
+                }
+            },
+            "config": {
+                "flexibleColumnLayout": {
+                    "defaultTwoColumnLayoutType": "TwoColumnsBeginExpanded",
+                    "defaultThreeColumnLayoutType": "ThreeColumnsMidExpanded"
+                },
+                "routerClass": "sap.f.routing.Router"
+            }
+        },
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {}
+            }
+        },
+        "rootView": {
+            "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+            "type": "XML",
+            "async": true,
+            "id": "appRootView"
+        }
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "transactional"
+    }
+}

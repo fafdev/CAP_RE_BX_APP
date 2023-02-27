@@ -1,0 +1,230 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "com.lorum4re.aux.recharacteristics",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:lrop",
+            "version": "1.9.0",
+            "toolsId": "a927dc22-9c3d-4f8a-91d7-4843c20afd3f"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/aux-catalog/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "4.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "com-lorum4re-aux-recharacteristics-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "recharacteristics",
+                    "action": "maintenance",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.110.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ushell": {},
+                "sap.fe.templates": {},
+                "sap.f": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "com.lorum4re.aux.recharacteristics.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true
+                }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            }
+        },
+        "resources": {
+            "css": []
+        },
+        "routing": {
+            "routes": [
+                {
+                    "pattern": ":?query:",
+                    "name": "RECharacteristicsList",
+                    "target": [
+                        "RECharacteristicsList"
+                    ]
+                },
+                {
+                    "pattern": "RECharacteristics({key}):?query:",
+                    "name": "RECharacteristicsObjectPage",
+                    "target": [
+                        "RECharacteristicsList",
+                        "RECharacteristicsObjectPage"
+                    ]
+                },
+                {
+                    "pattern": "RECharacteristics({key})/texts({key2}):?query:",
+                    "name": "RECharacteristics_textsObjectPage",
+                    "target": [
+                        "RECharacteristicsList",
+                        "RECharacteristicsObjectPage",
+                        "RECharacteristics_textsObjectPage"
+                    ]
+                }
+            ],
+            "targets": {
+                "RECharacteristicsList": {
+                    "type": "Component",
+                    "id": "RECharacteristicsList",
+                    "name": "sap.fe.templates.ListReport",
+                    "options": {
+                        "settings": {
+                            "entitySet": "RECharacteristics",
+                            "variantManagement": "Page",
+                            "navigation": {
+                                "RECharacteristics": {
+                                    "detail": {
+                                        "route": "RECharacteristicsObjectPage"
+                                    }
+                                }
+                            },
+                            "hideFilterBar": false,
+                            "defaultTemplateAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#table1",
+                            "initialLoad": "Enabled",
+                            "controlConfiguration": {
+                                "@com.sap.vocabularies.UI.v1.LineItem": {
+                                    "tableSettings": {
+                                        "creationMode": {
+                                            "createAtEnd": true,
+                                            "name": "NewPage"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "controlAggregation": "beginColumnPages",
+                    "contextPattern": ""
+                },
+                "RECharacteristicsObjectPage": {
+                    "type": "Component",
+                    "id": "RECharacteristicsObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "editableHeaderContent": true,
+                            "entitySet": "RECharacteristics",
+                            "navigation": {
+                                "texts": {
+                                    "detail": {
+                                        "route": "RECharacteristics_textsObjectPage"
+                                    }
+                                }
+                            },
+                            "variantManagement": "Control",
+                            "content": {
+                                "header": {
+                                    "anchorBarVisible": true,
+                                    "visible": true
+                                }
+                            },
+                            "showRelatedApps": true,
+                            "sectionLayout": "Tabs"
+                        }
+                    },
+                    "controlAggregation": "midColumnPages",
+                    "contextPattern": "/RECharacteristics({key})"
+                },
+                "RECharacteristics_textsObjectPage": {
+                    "type": "Component",
+                    "id": "RECharacteristics_textsObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "editableHeaderContent": false,
+                            "entitySet": "RECharacteristics_texts"
+                        }
+                    },
+                    "controlAggregation": "endColumnPages",
+                    "contextPattern": "/RECharacteristics({key})/texts({key2})"
+                }
+            },
+            "config": {
+                "flexibleColumnLayout": {
+                    "defaultTwoColumnLayoutType": "TwoColumnsBeginExpanded",
+                    "defaultThreeColumnLayoutType": "ThreeColumnsMidExpanded"
+                },
+                "routerClass": "sap.f.routing.Router"
+            }
+        },
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {}
+            }
+        },
+        "rootView": {
+            "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+            "type": "XML",
+            "async": true,
+            "id": "appRootView"
+        }
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "transactional"
+    }
+}

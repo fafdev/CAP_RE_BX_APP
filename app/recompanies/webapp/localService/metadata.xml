@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="CfgCatalogService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="RECompanies" EntityType="CfgCatalogService.RECompanies"/>
+            </EntityContainer>
+            <EntityType Name="RECompanies">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Code" Type="Edm.String" MaxLength="30" Nullable="false"/>
+                <Property Name="ExternalReference" Type="Edm.String" MaxLength="30"/>
+                <Property Name="Name" Type="Edm.String"/>
+                <Property Name="Description" Type="Edm.String"/>
+                <Property Name="AsCommercial" Type="Edm.Boolean"/>
+            </EntityType>
+            <Annotations Target="CfgCatalogService.RECompanies/createdAt">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="{i18n>CreatedAt}"/>
+                </Annotations>
+                <Annotations Target="CfgCatalogService.RECompanies/createdBy">
+                    <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                    <Annotation Term="Core.Immutable" Bool="true"/>
+                    <Annotation Term="Core.Computed" Bool="true"/>
+                    <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+                        <Annotation Term="Common.Label" String="{i18n>CreatedBy}"/>
+                        </Annotations>
+                        <Annotations Target="CfgCatalogService.RECompanies/modifiedAt">
+                            <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                            <Annotation Term="Core.Computed" Bool="true"/>
+                            <Annotation Term="Common.Label" String="{i18n>ChangedAt}"/>
+                            </Annotations>
+                            <Annotations Target="CfgCatalogService.RECompanies/modifiedBy">
+                                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                <Annotation Term="Core.Computed" Bool="true"/>
+                                <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+                                    <Annotation Term="Common.Label" String="{i18n>ChangedBy}"/>
+                                    </Annotations>
+                                    <Annotations Target="CfgCatalogService.RECompanies/Code">
+                                        <Annotation Term="Common.Label" String="{i18n>Code}"/>
+                                        </Annotations>
+                                        <Annotations Target="CfgCatalogService.RECompanies/ExternalReference">
+                                            <Annotation Term="Common.Label" String="{i18n>ExternalReference}"/>
+                                            </Annotations>
+                                            <Annotations Target="CfgCatalogService.RECompanies/Name">
+                                                <Annotation Term="Common.Label" String="{i18n>Name}"/>
+                                                </Annotations>
+                                                <Annotations Target="CfgCatalogService.RECompanies/Description">
+                                                    <Annotation Term="Common.Label" String="{i18n>Description}"/>
+                                                    </Annotations>
+                                                    <Annotations Target="CfgCatalogService.RECompanies/AsCommercial">
+                                                        <Annotation Term="Common.Label" String="{i18n>AsCommercial}"/>
+                                                        </Annotations>
+                                                    </Schema>
+                                                </edmx:DataServices>
+                                            </edmx:Edmx>

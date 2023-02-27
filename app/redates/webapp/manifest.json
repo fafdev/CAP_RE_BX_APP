@@ -1,0 +1,230 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "com.lorum4re.aux.redates",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:lrop",
+            "version": "1.9.0",
+            "toolsId": "c0c0c14f-5762-4407-99bd-9375fc97217e"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/aux-catalog/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "4.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "com-lorum4re-aux-redates-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "redates",
+                    "action": "mantdates",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.110.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ushell": {},
+                "sap.fe.templates": {},
+                "sap.f": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "com.lorum4re.aux.redates.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true
+                }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            }
+        },
+        "resources": {
+            "css": []
+        },
+        "routing": {
+            "routes": [
+                {
+                    "pattern": ":?query:",
+                    "name": "REDatesList",
+                    "target": [
+                        "REDatesList"
+                    ]
+                },
+                {
+                    "pattern": "REDates({key}):?query:",
+                    "name": "REDatesObjectPage",
+                    "target": [
+                        "REDatesList",
+                        "REDatesObjectPage"
+                    ]
+                },
+                {
+                    "pattern": "REDates({key})/texts({key2}):?query:",
+                    "name": "REDates_textsObjectPage",
+                    "target": [
+                        "REDatesList",
+                        "REDatesObjectPage",
+                        "REDates_textsObjectPage"
+                    ]
+                }
+            ],
+            "targets": {
+                "REDatesList": {
+                    "type": "Component",
+                    "id": "REDatesList",
+                    "name": "sap.fe.templates.ListReport",
+                    "options": {
+                        "settings": {
+                            "entitySet": "REDates",
+                            "variantManagement": "Page",
+                            "navigation": {
+                                "REDates": {
+                                    "detail": {
+                                        "route": "REDatesObjectPage"
+                                    }
+                                }
+                            },
+                            "hideFilterBar": false,
+                            "defaultTemplateAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#table",
+                            "initialLoad": "Enabled",
+                            "controlConfiguration": {
+                                "@com.sap.vocabularies.UI.v1.LineItem": {
+                                    "tableSettings": {
+                                        "creationMode": {
+                                            "createAtEnd": true,
+                                            "name": "NewPage"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "controlAggregation": "beginColumnPages",
+                    "contextPattern": ""
+                },
+                "REDatesObjectPage": {
+                    "type": "Component",
+                    "id": "REDatesObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "editableHeaderContent": true,
+                            "entitySet": "REDates",
+                            "navigation": {
+                                "texts": {
+                                    "detail": {
+                                        "route": "REDates_textsObjectPage"
+                                    }
+                                }
+                            },
+                            "variantManagement": "Control",
+                            "content": {
+                                "header": {
+                                    "anchorBarVisible": true,
+                                    "visible": true
+                                }
+                            },
+                            "showRelatedApps": true,
+                            "sectionLayout": "Tabs"
+                        }
+                    },
+                    "controlAggregation": "midColumnPages",
+                    "contextPattern": "/REDates({key})"
+                },
+                "REDates_textsObjectPage": {
+                    "type": "Component",
+                    "id": "REDates_textsObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "editableHeaderContent": false,
+                            "entitySet": "REDates_texts"
+                        }
+                    },
+                    "controlAggregation": "endColumnPages",
+                    "contextPattern": "/REDates({key})/texts({key2})"
+                }
+            },
+            "config": {
+                "flexibleColumnLayout": {
+                    "defaultTwoColumnLayoutType": "TwoColumnsBeginExpanded",
+                    "defaultThreeColumnLayoutType": "ThreeColumnsMidExpanded"
+                },
+                "routerClass": "sap.f.routing.Router"
+            }
+        },
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {}
+            }
+        },
+        "rootView": {
+            "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+            "type": "XML",
+            "async": true,
+            "id": "appRootView"
+        }
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "transactional"
+    }
+}

@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="AuxCatalogService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="REDates" EntityType="AuxCatalogService.REDates">
+                    <NavigationPropertyBinding Path="texts" Target="REDates_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="REDates_texts"/>
+                </EntitySet>
+                <EntitySet Name="RECharacteristics" EntityType="AuxCatalogService.RECharacteristics">
+                    <NavigationPropertyBinding Path="texts" Target="RECharacteristics_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="RECharacteristics_texts"/>
+                </EntitySet>
+                <EntitySet Name="REMeasures" EntityType="AuxCatalogService.REMeasures">
+                    <NavigationPropertyBinding Path="texts" Target="REMeasures_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="REMeasures_texts"/>
+                </EntitySet>
+                <EntitySet Name="REEquipment" EntityType="AuxCatalogService.REEquipment">
+                    <NavigationPropertyBinding Path="texts" Target="REEquipment_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="REEquipment_texts"/>
+                </EntitySet>
+                <EntitySet Name="REInfrastructures" EntityType="AuxCatalogService.REInfrastructures">
+                    <NavigationPropertyBinding Path="texts" Target="REInfrastructures_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="REInfrastructures_texts"/>
+                </EntitySet>
+                <EntitySet Name="RERoles" EntityType="AuxCatalogService.RERoles">
+                    <NavigationPropertyBinding Path="texts" Target="RERoles_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="RERoles_texts"/>
+                </EntitySet>
+                <EntitySet Name="REDates_texts" EntityType="AuxCatalogService.REDates_texts"/>
+                <EntitySet Name="RECharacteristics_texts" EntityType="AuxCatalogService.RECharacteristics_texts"/>
+                <EntitySet Name="REMeasures_texts" EntityType="AuxCatalogService.REMeasures_texts"/>
+                <EntitySet Name="REEquipment_texts" EntityType="AuxCatalogService.REEquipment_texts"/>
+                <EntitySet Name="REInfrastructures_texts" EntityType="AuxCatalogService.REInfrastructures_texts"/>
+                <EntitySet Name="RERoles_texts" EntityType="AuxCatalogService.RERoles_texts"/>
+            </EntityContainer>
+            <EntityType Name="REDates">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Code" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Description" Type="Edm.String"/>
+                <Property Name="InSites" Type="Edm.Boolean"/>
+                <Property Name="InObjects" Type="Edm.Boolean"/>
+                <Property Name="InUnits" Type="Edm.Boolean"/>
+                <Property Name="InContracts" Type="Edm.Boolean"/>
+                <NavigationProperty Name="texts" Type="Collection(AuxCatalogService.REDates_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="AuxCatalogService.REDates_texts">
+                    <ReferentialConstraint Property="Code" ReferencedProperty="Code"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="RECharacteristics">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Code" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Description" Type="Edm.String"/>
+                <Property Name="InSites" Type="Edm.Boolean"/>
+                <Property Name="InObjects" Type="Edm.Boolean"/>
+                <Property Name="InUnits" Type="Edm.Boolean"/>
+                <NavigationProperty Name="texts" Type="Collection(AuxCatalogService.RECharacteristics_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="AuxCatalogService.RECharacteristics_texts">
+                    <ReferentialConstraint Property="Code" ReferencedProperty="Code"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="REMeasures">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Code" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Description" Type="Edm.String"/>
+                <Property Name="InSites" Type="Edm.Boolean"/>
+                <Property Name="InObjects" Type="Edm.Boolean"/>
+                <Property Name="InUnits" Type="Edm.Boolean"/>
+                <NavigationProperty Name="texts" Type="Collection(AuxCatalogService.REMeasures_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="AuxCatalogService.REMeasures_texts">
+                    <ReferentialConstraint Property="Code" ReferencedProperty="Code"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="REEquipment">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Code" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Description" Type="Edm.String"/>
+                <Property Name="InSites" Type="Edm.Boolean"/>
+                <Property Name="InObjects" Type="Edm.Boolean"/>
+                <Property Name="InUnits" Type="Edm.Boolean"/>
+                <NavigationProperty Name="texts" Type="Collection(AuxCatalogService.REEquipment_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="AuxCatalogService.REEquipment_texts">
+                    <ReferentialConstraint Property="Code" ReferencedProperty="Code"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="REInfrastructures">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Code" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Description" Type="Edm.String"/>
+                <Property Name="InSites" Type="Edm.Boolean"/>
+                <Property Name="InObjects" Type="Edm.Boolean"/>
+                <Property Name="InUnits" Type="Edm.Boolean"/>
+                <NavigationProperty Name="texts" Type="Collection(AuxCatalogService.REInfrastructures_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="AuxCatalogService.REInfrastructures_texts">
+                    <ReferentialConstraint Property="Code" ReferencedProperty="Code"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="RERoles">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Code" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Description" Type="Edm.String"/>
+                <Property Name="InSites" Type="Edm.Boolean"/>
+                <Property Name="InObjects" Type="Edm.Boolean"/>
+                <Property Name="InUnits" Type="Edm.Boolean"/>
+                <Property Name="InContracts" Type="Edm.Boolean"/>
+                <NavigationProperty Name="texts" Type="Collection(AuxCatalogService.RERoles_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="AuxCatalogService.RERoles_texts">
+                    <ReferentialConstraint Property="Code" ReferencedProperty="Code"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="REDates_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="Code" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Description" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="RECharacteristics_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="Code" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Description" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="REMeasures_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="Code" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Description" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="REEquipment_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="Code" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Description" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="REInfrastructures_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="Code" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Description" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="RERoles_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="Code" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Description" Type="Edm.String"/>
+            </EntityType>
+            <Annotations Target="AuxCatalogService.REDates/createdAt">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="{i18n>CreatedAt}"/>
+                </Annotations>
+                <Annotations Target="AuxCatalogService.REDates/createdBy">
+                    <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                    <Annotation Term="Core.Immutable" Bool="true"/>
+                    <Annotation Term="Core.Computed" Bool="true"/>
+                    <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+                        <Annotation Term="Common.Label" String="{i18n>CreatedBy}"/>
+                        </Annotations>
+                        <Annotations Target="AuxCatalogService.REDates/modifiedAt">
+                            <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                            <Annotation Term="Core.Computed" Bool="true"/>
+                            <Annotation Term="Common.Label" String="{i18n>ChangedAt}"/>
+                            </Annotations>
+                            <Annotations Target="AuxCatalogService.REDates/modifiedBy">
+                                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                <Annotation Term="Core.Computed" Bool="true"/>
+                                <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+                                    <Annotation Term="Common.Label" String="{i18n>ChangedBy}"/>
+                                    </Annotations>
+                                    <Annotations Target="AuxCatalogService.REDates/Code">
+                                        <Annotation Term="Common.Label" String="{i18n>Code}"/>
+                                        </Annotations>
+                                        <Annotations Target="AuxCatalogService.REDates/Description">
+                                            <Annotation Term="Common.Label" String="{i18n>Description}"/>
+                                            </Annotations>
+                                            <Annotations Target="AuxCatalogService.REDates/InSites">
+                                                <Annotation Term="Common.Label" String="{i18n>InSites}"/>
+                                                </Annotations>
+                                                <Annotations Target="AuxCatalogService.REDates/InObjects">
+                                                    <Annotation Term="Common.Label" String="{i18n>InObjects}"/>
+                                                    </Annotations>
+                                                    <Annotations Target="AuxCatalogService.REDates/InUnits">
+                                                        <Annotation Term="Common.Label" String="{i18n>InUnits}"/>
+                                                        </Annotations>
+                                                        <Annotations Target="AuxCatalogService.REDates/InContracts">
+                                                            <Annotation Term="Common.Label" String="{i18n>InContracts}"/>
+                                                            </Annotations>
+                                                            <Annotations Target="AuxCatalogService.RECharacteristics/createdAt">
+                                                                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                <Annotation Term="Core.Immutable" Bool="true"/>
+                                                                <Annotation Term="Core.Computed" Bool="true"/>
+                                                                <Annotation Term="Common.Label" String="{i18n>CreatedAt}"/>
+                                                                </Annotations>
+                                                                <Annotations Target="AuxCatalogService.RECharacteristics/createdBy">
+                                                                    <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                    <Annotation Term="Core.Immutable" Bool="true"/>
+                                                                    <Annotation Term="Core.Computed" Bool="true"/>
+                                                                    <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+                                                                        <Annotation Term="Common.Label" String="{i18n>CreatedBy}"/>
+                                                                        </Annotations>
+                                                                        <Annotations Target="AuxCatalogService.RECharacteristics/modifiedAt">
+                                                                            <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                            <Annotation Term="Core.Computed" Bool="true"/>
+                                                                            <Annotation Term="Common.Label" String="{i18n>ChangedAt}"/>
+                                                                            </Annotations>
+                                                                            <Annotations Target="AuxCatalogService.RECharacteristics/modifiedBy">
+                                                                                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                                <Annotation Term="Core.Computed" Bool="true"/>
+                                                                                <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+                                                                                    <Annotation Term="Common.Label" String="{i18n>ChangedBy}"/>
+                                                                                    </Annotations>
+                                                                                    <Annotations Target="AuxCatalogService.RECharacteristics/Code">
+                                                                                        <Annotation Term="Common.Label" String="{i18n>Code}"/>
+                                                                                        </Annotations>
+                                                                                        <Annotations Target="AuxCatalogService.RECharacteristics/Description">
+                                                                                            <Annotation Term="Common.Label" String="{i18n>Description}"/>
+                                                                                            </Annotations>
+                                                                                            <Annotations Target="AuxCatalogService.RECharacteristics/InSites">
+                                                                                                <Annotation Term="Common.Label" String="{i18n>InSites}"/>
+                                                                                                </Annotations>
+                                                                                                <Annotations Target="AuxCatalogService.RECharacteristics/InObjects">
+                                                                                                    <Annotation Term="Common.Label" String="{i18n>InObjects}"/>
+                                                                                                    </Annotations>
+                                                                                                    <Annotations Target="AuxCatalogService.RECharacteristics/InUnits">
+                                                                                                        <Annotation Term="Common.Label" String="{i18n>InUnits}"/>
+                                                                                                        </Annotations>
+                                                                                                        <Annotations Target="AuxCatalogService.REMeasures/createdAt">
+                                                                                                            <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                                                            <Annotation Term="Core.Immutable" Bool="true"/>
+                                                                                                            <Annotation Term="Core.Computed" Bool="true"/>
+                                                                                                            <Annotation Term="Common.Label" String="{i18n>CreatedAt}"/>
+                                                                                                            </Annotations>
+                                                                                                            <Annotations Target="AuxCatalogService.REMeasures/createdBy">
+                                                                                                                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                                                                <Annotation Term="Core.Immutable" Bool="true"/>
+                                                                                                                <Annotation Term="Core.Computed" Bool="true"/>
+                                                                                                                <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+                                                                                                                    <Annotation Term="Common.Label" String="{i18n>CreatedBy}"/>
+                                                                                                                    </Annotations>
+                                                                                                                    <Annotations Target="AuxCatalogService.REMeasures/modifiedAt">
+                                                                                                                        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                                                                        <Annotation Term="Core.Computed" Bool="true"/>
+                                                                                                                        <Annotation Term="Common.Label" String="{i18n>ChangedAt}"/>
+                                                                                                                        </Annotations>
+                                                                                                                        <Annotations Target="AuxCatalogService.REMeasures/modifiedBy">
+                                                                                                                            <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                                                                            <Annotation Term="Core.Computed" Bool="true"/>
+                                                                                                                            <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+                                                                                                                                <Annotation Term="Common.Label" String="{i18n>ChangedBy}"/>
+                                                                                                                                </Annotations>
+                                                                                                                                <Annotations Target="AuxCatalogService.REMeasures/Code">
+                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>Code}"/>
+                                                                                                                                    </Annotations>
+                                                                                                                                    <Annotations Target="AuxCatalogService.REMeasures/Description">
+                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>Description}"/>
+                                                                                                                                        </Annotations>
+                                                                                                                                        <Annotations Target="AuxCatalogService.REMeasures/InSites">
+                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>InSites}"/>
+                                                                                                                                            </Annotations>
+                                                                                                                                            <Annotations Target="AuxCatalogService.REMeasures/InObjects">
+                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>InObjects}"/>
+                                                                                                                                                </Annotations>
+                                                                                                                                                <Annotations Target="AuxCatalogService.REMeasures/InUnits">
+                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>InUnits}"/>
+                                                                                                                                                    </Annotations>
+                                                                                                                                                    <Annotations Target="AuxCatalogService.REEquipment/createdAt">
+                                                                                                                                                        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                                                                                                        <Annotation Term="Core.Immutable" Bool="true"/>
+                                                                                                                                                        <Annotation Term="Core.Computed" Bool="true"/>
+                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>CreatedAt}"/>
+                                                                                                                                                        </Annotations>
+                                                                                                                                                        <Annotations Target="AuxCatalogService.REEquipment/createdBy">
+                                                                                                                                                            <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                                                                                                            <Annotation Term="Core.Immutable" Bool="true"/>
+                                                                                                                                                            <Annotation Term="Core.Computed" Bool="true"/>
+                                                                                                                                                            <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>CreatedBy}"/>
+                                                                                                                                                                </Annotations>
+                                                                                                                                                                <Annotations Target="AuxCatalogService.REEquipment/modifiedAt">
+                                                                                                                                                                    <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                                                                                                                    <Annotation Term="Core.Computed" Bool="true"/>
+                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>ChangedAt}"/>
+                                                                                                                                                                    </Annotations>
+                                                                                                                                                                    <Annotations Target="AuxCatalogService.REEquipment/modifiedBy">
+                                                                                                                                                                        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                                                                                                                        <Annotation Term="Core.Computed" Bool="true"/>
+                                                                                                                                                                        <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>ChangedBy}"/>
+                                                                                                                                                                            </Annotations>
+                                                                                                                                                                            <Annotations Target="AuxCatalogService.REEquipment/Code">
+                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>Code}"/>
+                                                                                                                                                                                </Annotations>
+                                                                                                                                                                                <Annotations Target="AuxCatalogService.REEquipment/Description">
+                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>Description}"/>
+                                                                                                                                                                                    </Annotations>
+                                                                                                                                                                                    <Annotations Target="AuxCatalogService.REEquipment/InSites">
+                                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>InSites}"/>
+                                                                                                                                                                                        </Annotations>
+                                                                                                                                                                                        <Annotations Target="AuxCatalogService.REEquipment/InObjects">
+                                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>InObjects}"/>
+                                                                                                                                                                                            </Annotations>
+                                                                                                                                                                                            <Annotations Target="AuxCatalogService.REEquipment/InUnits">
+                                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>InUnits}"/>
+                                                                                                                                                                                                </Annotations>
+                                                                                                                                                                                                <Annotations Target="AuxCatalogService.REInfrastructures/createdAt">
+                                                                                                                                                                                                    <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                                                                                                                                                    <Annotation Term="Core.Immutable" Bool="true"/>
+                                                                                                                                                                                                    <Annotation Term="Core.Computed" Bool="true"/>
+                                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>CreatedAt}"/>
+                                                                                                                                                                                                    </Annotations>
+                                                                                                                                                                                                    <Annotations Target="AuxCatalogService.REInfrastructures/createdBy">
+                                                                                                                                                                                                        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                                                                                                                                                        <Annotation Term="Core.Immutable" Bool="true"/>
+                                                                                                                                                                                                        <Annotation Term="Core.Computed" Bool="true"/>
+                                                                                                                                                                                                        <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+                                                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>CreatedBy}"/>
+                                                                                                                                                                                                            </Annotations>
+                                                                                                                                                                                                            <Annotations Target="AuxCatalogService.REInfrastructures/modifiedAt">
+                                                                                                                                                                                                                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                                                                                                                                                                <Annotation Term="Core.Computed" Bool="true"/>
+                                                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>ChangedAt}"/>
+                                                                                                                                                                                                                </Annotations>
+                                                                                                                                                                                                                <Annotations Target="AuxCatalogService.REInfrastructures/modifiedBy">
+                                                                                                                                                                                                                    <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                                                                                                                                                                    <Annotation Term="Core.Computed" Bool="true"/>
+                                                                                                                                                                                                                    <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+                                                                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>ChangedBy}"/>
+                                                                                                                                                                                                                        </Annotations>
+                                                                                                                                                                                                                        <Annotations Target="AuxCatalogService.REInfrastructures/Code">
+                                                                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>Code}"/>
+                                                                                                                                                                                                                            </Annotations>
+                                                                                                                                                                                                                            <Annotations Target="AuxCatalogService.REInfrastructures/Description">
+                                                                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>Description}"/>
+                                                                                                                                                                                                                                </Annotations>
+                                                                                                                                                                                                                                <Annotations Target="AuxCatalogService.REInfrastructures/InSites">
+                                                                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>InSites}"/>
+                                                                                                                                                                                                                                    </Annotations>
+                                                                                                                                                                                                                                    <Annotations Target="AuxCatalogService.REInfrastructures/InObjects">
+                                                                                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>InObjects}"/>
+                                                                                                                                                                                                                                        </Annotations>
+                                                                                                                                                                                                                                        <Annotations Target="AuxCatalogService.REInfrastructures/InUnits">
+                                                                                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>InUnits}"/>
+                                                                                                                                                                                                                                            </Annotations>
+                                                                                                                                                                                                                                            <Annotations Target="AuxCatalogService.RERoles/createdAt">
+                                                                                                                                                                                                                                                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                                                                                                                                                                                                <Annotation Term="Core.Immutable" Bool="true"/>
+                                                                                                                                                                                                                                                <Annotation Term="Core.Computed" Bool="true"/>
+                                                                                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>CreatedAt}"/>
+                                                                                                                                                                                                                                                </Annotations>
+                                                                                                                                                                                                                                                <Annotations Target="AuxCatalogService.RERoles/createdBy">
+                                                                                                                                                                                                                                                    <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                                                                                                                                                                                                    <Annotation Term="Core.Immutable" Bool="true"/>
+                                                                                                                                                                                                                                                    <Annotation Term="Core.Computed" Bool="true"/>
+                                                                                                                                                                                                                                                    <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+                                                                                                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>CreatedBy}"/>
+                                                                                                                                                                                                                                                        </Annotations>
+                                                                                                                                                                                                                                                        <Annotations Target="AuxCatalogService.RERoles/modifiedAt">
+                                                                                                                                                                                                                                                            <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                                                                                                                                                                                                            <Annotation Term="Core.Computed" Bool="true"/>
+                                                                                                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>ChangedAt}"/>
+                                                                                                                                                                                                                                                            </Annotations>
+                                                                                                                                                                                                                                                            <Annotations Target="AuxCatalogService.RERoles/modifiedBy">
+                                                                                                                                                                                                                                                                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                                                                                                                                                                                                                                                <Annotation Term="Core.Computed" Bool="true"/>
+                                                                                                                                                                                                                                                                <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+                                                                                                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>ChangedBy}"/>
+                                                                                                                                                                                                                                                                    </Annotations>
+                                                                                                                                                                                                                                                                    <Annotations Target="AuxCatalogService.RERoles/Code">
+                                                                                                                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>Code}"/>
+                                                                                                                                                                                                                                                                        </Annotations>
+                                                                                                                                                                                                                                                                        <Annotations Target="AuxCatalogService.RERoles/Description">
+                                                                                                                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>Description}"/>
+                                                                                                                                                                                                                                                                            </Annotations>
+                                                                                                                                                                                                                                                                            <Annotations Target="AuxCatalogService.RERoles/InSites">
+                                                                                                                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>InSites}"/>
+                                                                                                                                                                                                                                                                                </Annotations>
+                                                                                                                                                                                                                                                                                <Annotations Target="AuxCatalogService.RERoles/InObjects">
+                                                                                                                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>InObjects}"/>
+                                                                                                                                                                                                                                                                                    </Annotations>
+                                                                                                                                                                                                                                                                                    <Annotations Target="AuxCatalogService.RERoles/InUnits">
+                                                                                                                                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>InUnits}"/>
+                                                                                                                                                                                                                                                                                        </Annotations>
+                                                                                                                                                                                                                                                                                        <Annotations Target="AuxCatalogService.RERoles/InContracts">
+                                                                                                                                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>InContracts}"/>
+                                                                                                                                                                                                                                                                                            </Annotations>
+                                                                                                                                                                                                                                                                                            <Annotations Target="AuxCatalogService.REDates_texts/locale">
+                                                                                                                                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>LanguageCode}"/>
+                                                                                                                                                                                                                                                                                                </Annotations>
+                                                                                                                                                                                                                                                                                                <Annotations Target="AuxCatalogService.REDates_texts/Code">
+                                                                                                                                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>Code}"/>
+                                                                                                                                                                                                                                                                                                    </Annotations>
+                                                                                                                                                                                                                                                                                                    <Annotations Target="AuxCatalogService.REDates_texts/Description">
+                                                                                                                                                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>Description}"/>
+                                                                                                                                                                                                                                                                                                        </Annotations>
+                                                                                                                                                                                                                                                                                                        <Annotations Target="AuxCatalogService.RECharacteristics_texts/locale">
+                                                                                                                                                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>LanguageCode}"/>
+                                                                                                                                                                                                                                                                                                            </Annotations>
+                                                                                                                                                                                                                                                                                                            <Annotations Target="AuxCatalogService.RECharacteristics_texts/Code">
+                                                                                                                                                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>Code}"/>
+                                                                                                                                                                                                                                                                                                                </Annotations>
+                                                                                                                                                                                                                                                                                                                <Annotations Target="AuxCatalogService.RECharacteristics_texts/Description">
+                                                                                                                                                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>Description}"/>
+                                                                                                                                                                                                                                                                                                                    </Annotations>
+                                                                                                                                                                                                                                                                                                                    <Annotations Target="AuxCatalogService.REMeasures_texts/locale">
+                                                                                                                                                                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>LanguageCode}"/>
+                                                                                                                                                                                                                                                                                                                        </Annotations>
+                                                                                                                                                                                                                                                                                                                        <Annotations Target="AuxCatalogService.REMeasures_texts/Code">
+                                                                                                                                                                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>Code}"/>
+                                                                                                                                                                                                                                                                                                                            </Annotations>
+                                                                                                                                                                                                                                                                                                                            <Annotations Target="AuxCatalogService.REMeasures_texts/Description">
+                                                                                                                                                                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>Description}"/>
+                                                                                                                                                                                                                                                                                                                                </Annotations>
+                                                                                                                                                                                                                                                                                                                                <Annotations Target="AuxCatalogService.REEquipment_texts/locale">
+                                                                                                                                                                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>LanguageCode}"/>
+                                                                                                                                                                                                                                                                                                                                    </Annotations>
+                                                                                                                                                                                                                                                                                                                                    <Annotations Target="AuxCatalogService.REEquipment_texts/Code">
+                                                                                                                                                                                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>Code}"/>
+                                                                                                                                                                                                                                                                                                                                        </Annotations>
+                                                                                                                                                                                                                                                                                                                                        <Annotations Target="AuxCatalogService.REEquipment_texts/Description">
+                                                                                                                                                                                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>Description}"/>
+                                                                                                                                                                                                                                                                                                                                            </Annotations>
+                                                                                                                                                                                                                                                                                                                                            <Annotations Target="AuxCatalogService.REInfrastructures_texts/locale">
+                                                                                                                                                                                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>LanguageCode}"/>
+                                                                                                                                                                                                                                                                                                                                                </Annotations>
+                                                                                                                                                                                                                                                                                                                                                <Annotations Target="AuxCatalogService.REInfrastructures_texts/Code">
+                                                                                                                                                                                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>Code}"/>
+                                                                                                                                                                                                                                                                                                                                                    </Annotations>
+                                                                                                                                                                                                                                                                                                                                                    <Annotations Target="AuxCatalogService.REInfrastructures_texts/Description">
+                                                                                                                                                                                                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>Description}"/>
+                                                                                                                                                                                                                                                                                                                                                        </Annotations>
+                                                                                                                                                                                                                                                                                                                                                        <Annotations Target="AuxCatalogService.RERoles_texts/locale">
+                                                                                                                                                                                                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>LanguageCode}"/>
+                                                                                                                                                                                                                                                                                                                                                            </Annotations>
+                                                                                                                                                                                                                                                                                                                                                            <Annotations Target="AuxCatalogService.RERoles_texts/Code">
+                                                                                                                                                                                                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>Code}"/>
+                                                                                                                                                                                                                                                                                                                                                                </Annotations>
+                                                                                                                                                                                                                                                                                                                                                                <Annotations Target="AuxCatalogService.RERoles_texts/Description">
+                                                                                                                                                                                                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>Description}"/>
+                                                                                                                                                                                                                                                                                                                                                                    </Annotations>
+                                                                                                                                                                                                                                                                                                                                                                </Schema>
+                                                                                                                                                                                                                                                                                                                                                            </edmx:DataServices>
+                                                                                                                                                                                                                                                                                                                                                        </edmx:Edmx>

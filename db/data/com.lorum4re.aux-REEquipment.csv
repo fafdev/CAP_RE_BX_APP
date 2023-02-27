@@ -1,0 +1,5 @@
+Code,Description,InSites,InObjects,InUnits
+1,Fridge,false,true,false
+2,Dishwasher,false,false,false
+3,Aircondition,true,true,false
+4,Gas,true,true,true

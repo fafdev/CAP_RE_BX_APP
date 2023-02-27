@@ -1,0 +1,5 @@
+Code,Description,InSites,InObjects,InUnits
+1,Hospital,false,true,false
+2,School,false,false,false
+3,Subway,true,true,false
+4,Garden,true,true,true

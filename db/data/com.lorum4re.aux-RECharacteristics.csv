@@ -1,0 +1,5 @@
+Code,Description,InSites,InObjects,InUnits
+1,Characteristic 1,false,true,false
+2,Characteristic 2,false,false,false
+3,Characteristic 3,true,true,false
+4,Characteristic 4,true,true,true

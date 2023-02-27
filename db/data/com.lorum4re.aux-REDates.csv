@@ -1,0 +1,5 @@
+Code,Description,InSites,InObjects,InUnits,InContracts
+1,Date Building,false,true,false,false
+2,Contract Date,false,false,false,true
+3,Construction end date,true,true,false,false
+4,End of delivery date,true,true,true,false

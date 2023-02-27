@@ -1,0 +1,5 @@
+Code,Description,InSites,InObjects,InUnits
+1,Surface,false,true,false
+2,Number of rooms,false,false,false
+3,Volume,true,true,false
+4,ELocal size,true,true,true

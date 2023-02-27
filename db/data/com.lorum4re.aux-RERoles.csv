@@ -1,0 +1,5 @@
+Code,Description,InSites,InObjects,InUnits,InContracts
+1,Tenant,false,true,false,false
+2,Landlord,false,false,false,true
+3,Salesman,true,true,false,false
+4,Doorman,true,true,true,false
